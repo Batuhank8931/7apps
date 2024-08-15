@@ -76,7 +76,11 @@ This command will run all the tests in the `tests/` directory.
 **Example:**
 
      {
-       "pdf_id": "unique_pdf_identifier"
+         "pdf_id": "144fe247-24eb-4a06-bfda-24073229a08e",
+         "filename": "deneme.pdf",
+         "txt_file_path": "saved_txt\\144fe247-24eb-4a06-bfda-24073229a08e.txt",
+         "page_count": 1,
+         "file_content": "Örnek Deneme İçeriği"
      }
 
 **Process:**
