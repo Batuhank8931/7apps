@@ -1,10 +1,7 @@
-# app/error_handlers.py
-
 from fastapi import Request, HTTPException
 from fastapi.responses import JSONResponse
 import logging
 
-# Initialize logging
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
 handler = logging.StreamHandler()

@@ -1,5 +1,3 @@
-# app/state.py
-
 class StateManager:
     def __init__(self):
         self.pdfs = {}

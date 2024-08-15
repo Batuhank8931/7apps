@@ -1,11 +1,8 @@
-# Ignore the .env file containing environment variables
 .env
 venv/
 saved_files/
 saved_txt/
 app.log
-
-# Ignore other files and directories if needed
 __pycache__/
 *.pyc
 *.pyo

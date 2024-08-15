@@ -1,12 +1,10 @@
-# tests/test_state_management.py
-
 from app.state import StateManager
 from pathlib import Path
-from pypdf import PdfReader  # Updated import
+from pypdf import PdfReader
 
 def read_pdf(file_path):
     with open(file_path, "rb") as f:
-        reader = PdfReader(f)  # Updated to PdfReader
+        reader = PdfReader(f)
         text = ""
         for page in reader.pages:
             text += page.extract_text()
