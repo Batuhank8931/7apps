@@ -1,5 +1,7 @@
+# app/routes/read_pdf.py
+
 import os
-from PyPDF2 import PdfReader
+from pypdf import PdfReader  # Updated import
 
 # Define the path for the saved text files directory
 TXT_SAVE_DIR = "saved_txt"
@@ -22,7 +24,9 @@ def extract_text_from_pdf(pdf_path: str, pdf_id: str) -> str:
     # Extract text from each page
     text_content = ""
     for page in reader.pages:
-        text_content += page.extract_text()
+        text = page.extract_text()
+        if text:
+            text_content += text
 
     # Define the path for the text file
     txt_file_path = os.path.join(TXT_SAVE_DIR, f"{pdf_id}.txt")

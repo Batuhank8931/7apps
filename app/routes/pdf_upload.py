@@ -1,7 +1,6 @@
 # app/routes/pdf_upload.py
 
 import os
-import re
 import logging
 from fastapi import APIRouter, UploadFile, File, HTTPException, Depends
 from uuid import uuid4
@@ -9,7 +8,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from .read_pdf import extract_text_from_pdf
 from app.database import get_db
 from app.models import PDFMetadata
-from PyPDF2 import PdfReader
+from pypdf import PdfReader  # Updated import
 
 router = APIRouter()
 
@@ -43,7 +42,7 @@ async def upload_pdf(file: UploadFile = File(...), db: AsyncSession = Depends(ge
     txt_file_path = extract_text_from_pdf(file_path, pdf_id)
     
     # Read the PDF again to get the number of pages
-    reader = PdfReader(file_path)
+    reader = PdfReader(file_path)  # Updated usage
     page_count = len(reader.pages)
     
     # Read the content from the text file

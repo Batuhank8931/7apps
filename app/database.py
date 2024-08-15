@@ -1,6 +1,7 @@
+# app/database.py
+
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import declarative_base, sessionmaker  # Updated import
 import os
 from dotenv import load_dotenv
 
@@ -22,7 +23,7 @@ SessionLocal = sessionmaker(
 )
 
 # Create a Base class for declarative models
-Base = declarative_base()
+Base = declarative_base()  # This import should now be from sqlalchemy.orm
 
 # Dependency to get a session for the database
 async def get_db():
