@@ -69,8 +69,7 @@ This command will run all the tests in the `tests/` directory.
 **Input:** Multipart form data containing the PDF file  
 **Example:**
 
-     curl -X POST "http://localhost:8000/v1/pdf" \
-     -F "file=@/path/to/your/pdf/file.pdf"
+     curl -X POST "http://localhost:8000/v1/pdf" -F "file=@/path/to/your/pdf/file.pdf"
 
 **Output:** JSON response with the generated PDF ID  
 **Example:**
