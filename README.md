@@ -1,22 +1,22 @@
 # SevenApps Project
 
-## Overview
+## 1. Overview
 
 This project involves a FastAPI application with functionalities for PDF processing and Gemini API integration. It includes features for uploading PDFs, extracting text, and managing state.
 
-## Prerequisites
+## 2. Prerequisites
 
 - Python 3.12 or higher
 - `pip` (Python package installer)
 
-## Installation
+## 3. Installation
 
-### Clone the Repository
+### 3.1 Clone the Repository
 
      git clone https://github.com/Batuhank8931/7apps.git
      cd 7apps
 
-### Create and Activate a Virtual Environment
+### 3.2 Create and Activate a Virtual Environment
 
 For Windows:
 
@@ -28,40 +28,40 @@ For macOS/Linux:
      python3 -m venv venv
      source venv/bin/activate
 
-### Install the Required Packages
+### 3.3 Install the Required Packages
 
      pip install -r requirements.txt
 
-### Set Up Environment Variables
+### 3.4 Set Up Environment Variables
 
 Create a `.env` file in the root directory with the following content:
 
      GEMINI_API_KEY="your_gemini_key"
      DATABASE_URL=postgresql+asyncpg://username:password@localhost/database
 
-### Create Database Tables
+### 3.5 Create Database Tables
 
 Run the following command to create the necessary tables in your PostgreSQL database:
 
      python app/create_tables.py
 
-## Running the Application
+## 4. Running the Application
 
-### Start the FastAPI Server
+### 4.1 Start the FastAPI Server
 
      uvicorn app.main:app --reload
 
 This command will start the FastAPI server in development mode. The application will be accessible at `http://localhost:8000`.
 
-### Run Tests
+### 4.2 Run Tests
 
      pytest
 
 This command will run all the tests in the `tests/` directory.
 
-## Making Requests
+## 5. Making Requests
 
-### Upload a PDF
+### 5.1 Upload a PDF
 
 **Request Method:** POST  
 **Endpoint:** /v1/pdf  
@@ -88,7 +88,7 @@ d. Implement error handling to manage various PDF formats and potential parsing 
 e. Store extracted text along with associated metadata (e.g., filename, document ID, page count) in a structured format  
 f. Consider implementing text preprocessing techniques to enhance the quality of extracted content  
 
-### Chat with PDF
+### 5.2 Chat with PDF
 
 **Request Method:** POST  
 **Endpoint:** /v1/chat/{pdf_id}  
