@@ -13,8 +13,8 @@ This project involves a FastAPI application with functionalities for PDF process
 
 ### Clone the Repository
 
-git clone https://github.com/yourusername/your-repo.git
-cd your-repo
+git clone [https://github.com/yourusername/your-repo.git](https://github.com/Batuhank8931/7apps.git)
+cd 7apps
 
 ### Create and Activate a Virtual Environment
 
