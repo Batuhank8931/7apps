@@ -115,3 +115,17 @@ f. Consider implementing text preprocessing techniques to enhance the quality of
 
 - Use the unique PDF ID to locate the PDF and its associated text  
 - Process the user's message to generate a relevant response using the Gemini API
+
+## 6. Logging
+
+In the project folder, the app.log file holds the log data for all requests and errors 
+
+     2024-08-15 14:21:37,980 - INFO - Starting the 7apps FastAPI application
+     2024-08-15 14:21:42,220 - INFO - PDF uploaded successfully: deneme.pdf with ID 144fe247-24eb-4a06-bfda-24073229a08e
+     2024-08-15 14:21:42,284 - INFO - Metadata stored successfully for PDF ID 144fe247-24eb-4a06-bfda-24073229a08e
+     2024-08-15 14:21:48,201 - INFO - Processing chat request for PDF ID 33c6ec50-c35f-4cf6-8167-b2e86b2b4204
+     2024-08-15 14:21:50,624 - INFO - Generated response for PDF ID 33c6ec50-c35f-4cf6-8167-b2e86b2b4204
+     2024-08-15 14:27:11,222 - ERROR - PDF with ID 0d3aadbc-4ed6-4884-8593-0ed979ddcf0 not found.
+     2024-08-15 14:27:11,222 - ERROR - HTTP exception occurred: PDF not found
+     2024-08-15 14:27:21,306 - WARNING - Invalid file type uploaded: application/octet-stream
+     2024-08-15 14:27:21,306 - ERROR - HTTP exception occurred: Invalid file type. Only PDFs are allowed.
