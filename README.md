@@ -36,6 +36,7 @@ For macOS/Linux:
 
 Create a `.env` file in the root directory with the following content:
 
+     GEMINI_API_KEY="your_gemini_key"
      DATABASE_URL=postgresql+asyncpg://username:password@localhost/database
 
 ### Create Database Tables
