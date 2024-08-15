@@ -43,7 +43,7 @@ Create a `.env` file in the root directory with the following content:
 
 Run the following command to create the necessary tables in your PostgreSQL database:
 
-     python app/create_tables.py
+     python create_tables.py
 
 ## 4. Running the Application
 
