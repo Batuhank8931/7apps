@@ -13,45 +13,48 @@ This project involves a FastAPI application with functionalities for PDF process
 
 ### Clone the Repository
 
-git clone [https://github.com/Batuhank8931/7apps.git](https://github.com/Batuhank8931/7apps.git)
-cd 7apps
-
-     ⨯ ./node_modules/react-beautiful-dnd/dist/react-beautiful-dnd.esm.js
-    Module parse failed: Identifier 'Droppable' has already been declared (8507:9)
+     git clone https://github.com/Batuhank8931/7apps.git
+     cd 7apps
 
 ### Create and Activate a Virtual Environment
 
 For Windows:
 
-python -m venv venv
-venv\Scripts\activate
+     python -m venv venv
+     venv\Scripts\activate
 
 For macOS/Linux:
 
-python3 -m venv venv
-source venv/bin/activate
+     python3 -m venv venv
+     source venv/bin/activate
 
 ### Install the Required Packages
 
-pip install -r requirements.txt
+     pip install -r requirements.txt
 
 ### Set Up Environment Variables
 
 Create a `.env` file in the root directory with the following content:
 
-DATABASE_URL=postgresql+asyncpg://postgres:101010@localhost/sevenapps
+     DATABASE_URL=postgresql+asyncpg://username:password@localhost/database
+
+### Create Database Tables
+
+Run the following command to create the necessary tables in your PostgreSQL database:
+
+     python app/create_tables.py
 
 ## Running the Application
 
 ### Start the FastAPI Server
 
-uvicorn app.main:app --reload
+     uvicorn app.main:app --reload
 
 This command will start the FastAPI server in development mode. The application will be accessible at `http://localhost:8000`.
 
 ### Run Tests
 
-pytest
+     pytest
 
 This command will run all the tests in the `tests/` directory.
 
@@ -59,22 +62,51 @@ This command will run all the tests in the `tests/` directory.
 
 ### Upload a PDF
 
-You can use tools like `curl` or Postman to test the PDF upload endpoint. Here's an example `curl` command:
+**Request Method:** POST  
+**Endpoint:** /v1/pdf  
+**Description:** Endpoint for uploading and registering a PDF  
+**Input:** Multipart form data containing the PDF file  
+**Example:**
 
-curl -X POST "http://localhost:8000/upload_pdf" \
--H "Content-Type: multipart/form-data" \
--F "file=@path/to/your/sample.pdf"
+     curl -X POST "http://localhost:8000/v1/pdf" \
+     -F "file=@/path/to/your/pdf/file.pdf"
 
-Replace `path/to/your/sample.pdf` with the actual path to the PDF file you want to upload.
+**Output:** JSON response with the generated PDF ID  
+**Example:**
 
-### Generate a Response
+     {
+       "pdf_id": "unique_pdf_identifier"
+     }
 
-For endpoints like generating responses from the Gemini API, you can use `curl` or Postman to send POST requests with the necessary payload.
+**Process:**
 
-curl -X POST "http://localhost:8000/generate_response" \
--H "Content-Type: application/json" \
--d '{"prompt": "Your prompt here"}'
+a. Validate the uploaded file (file type, size limits)  
+b. Generate a unique identifier for the PDF  
+c. Design a data structure to efficiently store PDFs  
+d. Implement error handling to manage various PDF formats and potential parsing issues  
+e. Store extracted text along with associated metadata (e.g., filename, document ID, page count) in a structured format  
+f. Consider implementing text preprocessing techniques to enhance the quality of extracted content  
 
-Replace `"Your prompt here"` with the actual prompt for the Gemini API.
+### Chat with PDF
 
-For more details on the API endpoints, refer to the FastAPI documentation provided by the application.
+**Request Method:** POST  
+**Endpoint:** /v1/chat/{pdf_id}  
+**Description:** Endpoint for interacting with a specific PDF  
+**Input:** JSON body containing the user's message  
+**Example:**
+
+     {
+       "message": "What is the main topic of this PDF?"
+     }
+
+**Output:** JSON response with the AI-generated answer  
+**Example:**
+
+     {
+       "response": "The main topic of this PDF is..."
+     }
+
+**Process:**
+
+- Use the unique PDF ID to locate the PDF and its associated text  
+- Process the user's message to generate a relevant response using the Gemini API
